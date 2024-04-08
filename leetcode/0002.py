@@ -34,24 +34,22 @@ class ListNode:
 
 
 class Solution:
-    @staticmethod
-    def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        l: ListNode = ListNode()
-        l_current = l
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        lC = l = ListNode()
         carry = 0
         while True:
-            l_current.val = l1.val + l2.val + carry
-            if 10 <= l_current.val:
+            lC.val = l1.val + l2.val + carry
+            if 10 <= lC.val:
                 carry = 1
-                l_current.val -= 10
+                lC.val -= 10
             else:
                 carry = 0
             if l1.next is None and l2.next is None:
                 if carry == 1:
-                    l_current.next = ListNode(1, None)
+                    lC.next = ListNode(1, None)
                 break
             l1 = ListNode() if l1.next is None else l1.next
             l2 = ListNode() if l2.next is None else l2.next
-            l_current.next = ListNode()
-            l_current = l_current.next
+            lC.next = ListNode()
+            lC = lC.next
         return l

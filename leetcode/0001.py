@@ -32,8 +32,7 @@ from typing import List
 class Solution:
     # Time: O(n)
     # Space: O(n)
-    @staticmethod
-    def two_sum(nums: List[int], target: int) -> List[int]:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         seen = dict()
         for i in range(len(nums)):
             diff = target - nums[i]
@@ -41,12 +40,3 @@ class Solution:
                 return [seen[diff], i]
             seen[nums[i]] = i
         return []
-
-
-if __name__ == '__main__':
-    test001 = Solution.two_sum([2, 7, 11, 15], 9)
-    print(test001)
-    test002 = Solution.two_sum([3, 2, 4], 6)
-    print(test002)
-    test003 = Solution.two_sum([3, 3], 6)
-    print(test003)
